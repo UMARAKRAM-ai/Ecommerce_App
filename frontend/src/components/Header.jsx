@@ -2,14 +2,15 @@ import {Navbar, Nav, Container} from 'react-bootstrap'
 import {FaShoppingCart, FaUser} from 'react-icons/fa'
 import {LinkContainer} from 'react-router-bootstrap' 
 
+
 import logo from './Logo.png'
 
 const Header = () => {
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='md' collapseOnSelect >
-        <Container>
-        <LinkContainer to='/'><Navbar.Brand ><img style={{width: "50px", marginRight:'10px'}} src={logo} alt="" />Swift</Navbar.Brand></LinkContainer>
+      <Navbar  bg='black' variant='dark' expand='md' collapseOnSelect >
+        <Container >
+        <LinkContainer to='/' ><Navbar.Brand ><img style={{width: "50px", marginRight:'10px'} } src={logo} alt="" />Swift</Navbar.Brand></LinkContainer>
             <Navbar.Toggle aria-controls='basic=navbar-nav'/>
             <Navbar.Collapse id='basic-navbar-nav'>
                 <Nav className='ms-auto'>

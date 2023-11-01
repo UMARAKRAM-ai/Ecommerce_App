@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "Airpods Wireless Bluetooth Headphones",
     image: "/logo512.png",
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: "22",
   },
   {
-    _id: "2",
     name: "Sony WH-1000XM4 Wireless Noise-Canceling Headphones",
     image: "/Logo.png",
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: "32",
   },
   {
-    _id: "3",
     name: "Samsung 55-Inch 4K Ultra HD Smart TV",
     image: "/logo512.png",
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: "18",
   },
   {
-    _id: "4",
     name: "Canon EOS Rebel T7 DSLR Camera",
     image: "/Logo.png",
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: "26",
   },
   {
-    _id: "5",
     name: "KitchenAid Artisan Stand Mixer",
     image: "/logo512.png",
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: "38",
   },
   {
-    _id: "6",
     name: "Fitbit Charge 4 Fitness Tracker",
     image: "/Logo.png",
     description:
