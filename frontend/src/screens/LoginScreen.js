@@ -1,15 +1,45 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation,useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import FormContainer from "../components/FormContainer.js";
+import { useDispatch, useSelector } from "react-redux";
+import FormContainer from "../components/FormContainer";
+import Loader from "../components/Loader";
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/loginSlice";
+import { ToastContainer, toast } from "react-toastify"; // Import ToastContainer from react-toastify
+
+import "react-toastify/dist/ReactToastify.css"; // Add this for the ToastContainer styling
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitHandler = (e) => {
+  const dispatch = useDispatch();
+  const navigate =useNavigate();
+
+  const [login, { isLoading }] = useLoginMutation(); // Destructure the login function
+  const { userInfo } = useSelector((state) => state.login);
+
+  const { search } = useLocation();
+  const sp = new URLSearchParams(search);
+  const redirect = sp.get('redirect') || '/';
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
+
+
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("submit");
+    try {
+      const res = await login({ email, password }).unwrap();
+      dispatch(setCredentials({ ...res }));
+      navigate(redirect);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
 
   return (
@@ -21,7 +51,7 @@ const LoginScreen = () => {
           <FormControl
             type="email"
             placeholder="Enter Email"
-            value={email} // Use curly braces for variables, not single quotes
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormGroup>
@@ -30,20 +60,21 @@ const LoginScreen = () => {
           <FormControl
             type="password"
             placeholder="Enter Password"
-            value={password} // Use curly braces for variables, not single quotes
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </FormGroup>
-        <Button type="submit" variant="primary" className="my-3">
+        <Button type="submit" variant="primary" className="my-3" disabled={isLoading}>
           Sign In
         </Button>
+        {isLoading && <Loader/>}
       </Form>
-        <Row>
-            <Col>
-                New Customer? <Link to='/register'>Register</Link>
-            </Col>
-        </Row>
-
+      <Row>
+        <Col>
+          New Customer?{''} <Link to={redirect? `/register?redicrect=${redirect}`: '/redirect'}>Register</Link>
+        </Col>
+      </Row>
+      <ToastContainer /> {/* Render the ToastContainer */}
     </FormContainer>
   );
 };
