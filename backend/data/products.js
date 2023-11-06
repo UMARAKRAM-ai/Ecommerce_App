@@ -13,7 +13,7 @@ const products = [
   },
   {
     name: "Sony WH-1000XM4 Wireless Noise-Canceling Headphones",
-    image: "\images\Sony-headphone.jpg",
+    image: "/images/Sony-headphone.jpg",
     description:
       "Industry-leading noise cancellation for a quiet and immersive listening experience. Touch controls for easy playback and calls. Long battery life.",
     brand: "Sony",
@@ -25,7 +25,7 @@ const products = [
   },
   {
     name: "Samsung 55-Inch 4K Ultra HD Smart TV",
-    image: "\images\Samsung-LCD.jpg",
+    image: "/images/Samsung-LCD.jpg",
     description:
       "Stunning 4K Ultra HD picture quality. Built-in smart features for streaming your favorite content. Multiple HDMI and USB ports.",
     brand: "Samsung",
@@ -37,7 +37,7 @@ const products = [
   },
   {
     name: "Canon EOS Rebel T7 DSLR Camera",
-    image: "\images\Canon-Camera.jpg",
+    image: "/images/Canon-Camera.jpg",
     description:
       "Capture high-quality photos and Full HD videos with this entry-level DSLR camera. Easy-to-use and great for beginners.",
     brand: "Canon",
@@ -49,7 +49,7 @@ const products = [
   },
   {
     name: "KitchenAid Artisan Stand Mixer",
-    image: "\images\kitchen-aid.jpg",
+    image: "/images/kitchen.jpg",
     description:
       "Powerful stand mixer for baking and cooking enthusiasts. Multiple attachments for versatile food preparation. Durable and stylish design.",
     brand: "KitchenAid",
@@ -61,7 +61,7 @@ const products = [
   },
   {
     name: "Fitbit Charge 4 Fitness Tracker",
-    image: "\images\Fitness.jpg",
+    image: "/images/Fitness.jpg",
     description:
       "Track your fitness and health stats with this advanced fitness tracker. GPS, heart rate monitoring, and sleep tracking features.",
     brand: "Fitbit",
