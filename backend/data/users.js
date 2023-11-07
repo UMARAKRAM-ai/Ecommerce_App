@@ -11,13 +11,13 @@ const users=[
         name:'Max',
         email:'max@email.com',
         password:await bcrypt.hash('12345', 10),
-        isAdmin:false
+        isAdmin:true
     },
     {
         name:'Sam',
         email:'sam@email.com',
         password:await bcrypt.hash('12345', 10),
-        isAdmin:false
+        isAdmin:true
     },
 ]
 

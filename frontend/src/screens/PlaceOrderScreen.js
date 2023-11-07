@@ -34,15 +34,21 @@ const PlaceOrderScreen = () => {
 
   console.log(cart);
 
-  const placeOrderHandler = async () => {
+  const placeOrderHandler = async ()=>{
     try {
-      const res = await createOrder ({
-      
-      }).unwrap();
-      dispatch(clearCartItems());
-      navigate(`/order/${res._id}`)
+        const res = await createOrder({
+            orderItems: cart.cartItems,
+            shippingAddress: cart.shippingAddress,
+            paymentMethod: cart.paymentMethod,
+            itemsPrice: cart.itemsPrice,
+            shippingPrice: cart.shippingPrice,
+            taxPrice: cart.taxPrice,
+            totalPrice: cart.totalPrice,
+        }).unwrap();
+        dispatch(clearCartItems());
+        navigate(`/order/${res._id}`);
     } catch (error) {
-        toast.error(error);
+        toast.error(error); 
     }
   }
 
